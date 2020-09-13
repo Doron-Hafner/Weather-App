@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>Weather-App</title>
+</head>
+
+<body>
+    <div class="app-wrap">
+        <header>
+            <input id="city-input" placeholder="Enter city"> 
+            <button id="city-btn">Search</button>
+        </header>
+        <div id="results">
+        </div>
+    </div>
+
+    <script id='city-template' type="text/x-handlebars-template">
+        {{#each data}}
+            <div class="city">
+                {{#if isNew}}
+                    <i class="fas fa-plus-circle add"></i>
+                {{else}}
+                    <i class="fas fa-minus-circle delete"></i>
+                {{/if}}
+                <p id="name">{{name}}</p>
+                <p style="font-size: 22px;">{{temprature}}°C</p>
+                <p>{{condition}}</p>
+                <img src="http://openweathermap.org/img/wn/{{conditionPic}}@2x.png">
+            </div>
+        {{/each}}
+    </script>
+
+    <script src="handlebars/dist/handlebars.js"></script>
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="model.js"></script>
+    <script src="renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
